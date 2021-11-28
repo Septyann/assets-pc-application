@@ -24,7 +24,7 @@ class UpdatePositionRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+					'name' => ['required', 'max:' . trans('app.accessory.max_length')]
         ];
     }
 }

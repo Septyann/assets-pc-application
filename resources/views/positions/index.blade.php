@@ -79,7 +79,7 @@
 							{{ trans('app.button.edit') }}
 						</button>
 
-						<!-- Modal Create -->
+						<!-- Modal Edit -->
 						<div class="modal fade" id="ModalEdit{{ $position->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
 							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 							<div class="modal-dialog modal-lg">
@@ -116,7 +116,7 @@
 								</div>
 							</div>
 						</div>
-						{{-- End Modal Create --}}
+						{{-- End Modal Edit --}}
 
 						<form action="{{ route('positions.destroy', $position->id) }}" method="POST" class="d-inline">
 							@csrf

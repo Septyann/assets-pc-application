@@ -18,6 +18,14 @@ return [
 		'max_length'	=> '50'
 	],
 
+	'accessory' => [
+		'alias'				=> 'Accessories',
+		'singular'		=> 'Accessory',
+		'create'			=> 'Add Accessory',
+		'name'				=> 'Name',
+		'max_length'	=> '50'
+	],
+
 	'general' => [
 		'number'			=> '#',
 		'action'			=> 'Action',

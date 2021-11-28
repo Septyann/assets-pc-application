@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', trans('app.hardware.alias'))
+@section('title', trans('app.accessory.alias'))
 
 @section('content')
 
@@ -14,12 +14,12 @@
 
 <div class="card">
 	<h5 class="card-header" style="text-align: center">
-		{{ trans('app.hardware.alias') }}
+		{{ trans('app.accessory.alias') }}
 	</h5>
 	<div class="card-body">
 
 		<button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#ModalCreate">
-			{{ trans('app.hardware.create') }}
+			{{ trans('app.accessory.create') }}
 		</button>
 
 		<!-- Modal Create -->
@@ -29,16 +29,16 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title" id="staticBackdropLabel">
-							{{ trans('app.hardware.create') }}
+							{{ trans('app.accessory.create') }}
 						</h5>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
-						<form action="{{ route('hardwares.store') }}" method="POST">
+						<form action="{{ route('accessories.store') }}" method="POST">
 							@csrf
 							<div class="row">
 								<label class="col-sm-2" for="">
-									{{ trans('app.hardware.name') }}
+									{{ trans('app.accessory.name') }}
 									<span class="text-danger">*</span>
 								</label>
 								<div class="col-sm">
@@ -64,43 +64,43 @@
 			<thead>
 				<tr>
 					<th>{{ trans('app.general.number') }}</th>
-					<th>{{ trans('app.hardware.name') }}</th>
+					<th>{{ trans('app.accessory.name') }}</th>
 					<th>{{ trans('app.general.action') }}</th>
 				</tr>
 			</thead>
 			<tbody>
-				@foreach ($hardwares as $hardware)
+				@foreach ($accessories as $accessory)
 				<tr>
 					<td>{{ $loop->iteration }}</td>
-					<td>{{ $hardware->name }}</td>
+					<td>{{ $accessory->name }}</td>
 					<td>
 						<button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal"
-							data-bs-target="#ModalEdit{{ $hardware->id }}">
+							data-bs-target="#ModalEdit{{ $accessory->id }}">
 							{{ trans('app.button.edit') }}
 						</button>
 
 						<!-- Modal Edit -->
-						<div class="modal fade" id="ModalEdit{{ $hardware->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
+						<div class="modal fade" id="ModalEdit{{ $accessory->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
 							tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 							<div class="modal-dialog modal-lg">
 								<div class="modal-content">
 									<div class="modal-header">
 										<h5 class="modal-title" id="staticBackdropLabel">
-											{{ trans('app.hardware.create') }}
+											{{ trans('app.accessory.create') }}
 										</h5>
 										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
 									<div class="modal-body">
-										<form action="{{ route('hardwares.update', $hardware->id) }}" method="POST">
+										<form action="{{ route('accessories.update', $accessory->id) }}" method="POST">
 											@csrf
 											@method('PUT')
 											<div class="row">
 												<label class="col-sm-2" for="">
-													{{ trans('app.hardware.name') }}
+													{{ trans('app.accessory.name') }}
 													<span class="text-danger">*</span>
 												</label>
 												<div class="col-sm">
-													<input type="text" name="name" id="" class="form-control" value="{{ $hardware->name }}">
+													<input type="text" name="name" id="" class="form-control" value="{{ $accessory->name }}">
 												</div>
 											</div>
 									</div>
@@ -118,7 +118,7 @@
 						</div>
 						{{-- End Modal Edit --}}
 
-						<form action="{{ route('hardwares.destroy', $hardware->id) }}" method="POST" class="d-inline">
+						<form action="{{ route('accessories.destroy', $accessory->id) }}" method="POST" class="d-inline">
 							@csrf
 							@method('DELETE')
 							<button type="submit" class="btn btn-sm btn-danger"
