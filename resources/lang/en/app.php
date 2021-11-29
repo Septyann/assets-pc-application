@@ -26,6 +26,22 @@ return [
 		'max_length'	=> '50'
 	],
 
+	'employee' => [
+		'alias'				=> 'Employees',
+		'singular'		=> 'Employee',
+		'create'			=> 'Add Employee',
+		'name'				=> 'Name',
+		'position'		=> 'Position',
+		'ip'					=> 'IP',
+		'ip0'					=> 'IP 0',
+		'ip1'					=> 'IP 1',
+		'ip2'					=> 'IP 2',
+		'hardware'		=> 'Hardwares',
+		'accessory'		=> 'Accessories',
+		'employee_info'	=> 'Employee Info',
+		'max_length'	=> '50'
+	],
+
 	'general' => [
 		'number'			=> '#',
 		'action'			=> 'Action',

@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
 				$this->call([
 					PositionSeeder::class,
 					HardwareSeeder::class,
-					AccessorySeeder::class
+					AccessorySeeder::class,
+					EmployeeSeeder::class
 				]);
     }
 }

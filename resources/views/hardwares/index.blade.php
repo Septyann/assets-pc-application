@@ -13,11 +13,12 @@
 @endif
 
 <div class="card">
+	
 	<h5 class="card-header" style="text-align: center">
 		{{ trans('app.hardware.alias') }}
 	</h5>
-	<div class="card-body">
 
+	<div class="card-body">
 		<button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#ModalCreate">
 			{{ trans('app.hardware.create') }}
 		</button>

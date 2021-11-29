@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccessoryController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HardwareController;
 use App\Http\Controllers\PositionController;
 use Illuminate\Support\Facades\Route;
@@ -25,3 +26,5 @@ Route::resource('positions', PositionController::class);
 Route::resource('hardwares', HardwareController::class);
 
 Route::resource('accessories', AccessoryController::class);
+
+Route::resource('employees', EmployeeController::class);
