@@ -13,4 +13,8 @@ class Position extends Model
 	[
 		'name'
 	];
+
+	public function employee () {
+		return $this->hasOne(Employee::class);
+	}
 }

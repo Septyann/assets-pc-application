@@ -18,7 +18,7 @@ class Employee extends Model
 		'ip2',
 	];
 
-	public function position_id()
+	public function position()
 	{
 		return $this->belongsTo(Position::class);
 	}

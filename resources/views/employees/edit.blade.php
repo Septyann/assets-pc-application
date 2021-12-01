@@ -7,10 +7,11 @@
 <div class="card">
 
 	<h5 class="card-header" style="text-align: center">
-		{{ trans('app.employee.create') }}
+		{{ trans('app.employee.edit') }}
 	</h5>
 
-	<form action="{{ route('employees.store') }}" method="POST">
+	<form action="{{ route('employees.update', $employee->id) }}" method="POST">
+		@method('PUT')
 		@csrf
 
 		<div class="card-body">
@@ -22,7 +23,7 @@
 					<span class="text-danger">*</span>
 				</label>
 				<div class="col-sm">
-					<input type="text" name="name" id="" class="form-control" required>
+					<input type="text" name="name" id="" class="form-control" value="{{ $employee->name }}" required>
 				</div>
 			</div>
 			<div class="row mb-3">
@@ -32,7 +33,9 @@
 				</label>
 				<div class="col-sm">
 					<select name="position_id" id="" class="form-select">
-						<option selected disabled value="">...</option>
+						<option selected value="{{ $employee->position->id }}">
+							{{ $employee->position->name }}
+						</option>
 						@foreach ($positions as $position)
 						<option value="{{ $position->id }}">
 							{{ $position->name }}
@@ -47,19 +50,19 @@
 					<span class="text-danger">*</span>
 				</label>
 				<div class="col-sm">
-					<input type="text" name="ip0" class="form-control" placeholder="IP 0">
+					<input type="text" name="ip0" class="form-control" placeholder="IP 0" value="{{ $employee->ip0 }}">
 				</div>
 				<div class="col-sm">
-					<input type="text" name="ip1" class="form-control" placeholder="IP 1">
+					<input type="text" name="ip1" class="form-control" placeholder="IP 1" value="{{ $employee->ip1 }}">
 				</div>
 				<div class="col-sm">
-					<input type="text" name="ip2" class="form-control" placeholder="IP 2 (this ip maybe can null)">
+					<input type="text" name="ip2" class="form-control" placeholder="IP 2 (this ip maybe can null)" value="{{ $employee->ip2 }}">
 				</div>
 			</div>
 			<hr>
 			<br>
 
-			<h5>{{ trans('app.employee.hardware') }} & {{ trans('app.employee.accessory') }}</h5>
+			{{-- <h5>{{ trans('app.employee.hardware') }} & {{ trans('app.employee.accessory') }}</h5>
 			<hr>
 			<div class="row mb-3">
 				<label for="" class="col-sm">
@@ -90,7 +93,7 @@
 					</div>
 					@endforeach
 				</div>
-			</div>
+			</div> --}}
 		</div>
 
 		<div class="card-footer">
@@ -100,7 +103,7 @@
 			<button type="reset" class="btn btn-secondary mr-2">
 				{{ trans('app.button.reset') }}
 			</button>
-			<a href="#" class="btn btn-secondary">
+			<a href="{{ route('employees.index') }}" class="btn btn-secondary">
 				{{ trans('app.button.back') }}
 			</a>
 		</div>

@@ -47,7 +47,19 @@ class EmployeeController extends Controller
 	 */
 	public function store(StoreEmployeeRequest $request)
 	{
-		//
+		// dd($request->all());
+
+		Employee::query()->create([
+			'name' => $request->name,
+			'position_id' => $request->position_id,
+			'ip0'	=> $request->ip0,
+			'ip1'	=> $request->ip1,
+			'ip2'	=> $request->ip2,
+		]);
+
+		$request->session()->flash('success', trans('messages.employee.saved'));
+
+		return redirect()->route('employees.index');
 	}
 
 	/**
@@ -69,7 +81,21 @@ class EmployeeController extends Controller
 	 */
 	public function edit(Employee $employee)
 	{
-		//
+		$positions = Position::all();
+
+		$hardwares = Hardware::all();
+
+		$accessories = Accessory::all();
+
+		return view(
+			'employees.edit',
+			compact(
+				'employee',
+				'positions',
+				'hardwares',
+				'accessories',
+			)
+		);
 	}
 
 	/**
@@ -81,7 +107,17 @@ class EmployeeController extends Controller
 	 */
 	public function update(UpdateEmployeeRequest $request, Employee $employee)
 	{
-		//
+		$employee->update([
+			'name' => $request->name,
+			'position_id' => $request->position_id,
+			'ip0' => $request->ip0,
+			'ip1' => $request->ip1,
+			'ip2' => $request->ip2,
+		]);
+
+		$request->session()->flash('success', trans('messages.employee.updated'));
+
+		return redirect()->route('employees.index');
 	}
 
 	/**
@@ -92,6 +128,10 @@ class EmployeeController extends Controller
 	 */
 	public function destroy(Employee $employee)
 	{
-		//
+		$employee->delete();
+
+		request()->session()->flash('success', trans('messages.employee.deleted'));
+
+		return back();
 	}
 }

@@ -20,4 +20,10 @@ return [
 		'deleted'		=> 'Accessory Deleted Successfully'
 	],
 
+	'employee' => [
+		'saved' 		=> 'Employee Saved Successfully',
+		'updated' 	=> 'Employee Updated Successfully',
+		'deleted'		=> 'Employee Deleted Successfully'
+	],
+
 ];

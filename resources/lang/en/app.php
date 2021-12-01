@@ -30,6 +30,7 @@ return [
 		'alias'				=> 'Employees',
 		'singular'		=> 'Employee',
 		'create'			=> 'Add Employee',
+		'edit'				=> 'Edit Employee',
 		'name'				=> 'Name',
 		'position'		=> 'Position',
 		'ip'					=> 'IP',

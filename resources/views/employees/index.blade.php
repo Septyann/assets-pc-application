@@ -29,6 +29,7 @@
 				<tr>
 					<th>{{ trans('app.general.number') }}</th>
 					<th>{{ trans('app.employee.name') }}</th>
+					<th>{{ trans('app.employee.position') }}</th>
 					<th>{{ trans('app.employee.ip0') }}</th>
 					<th>{{ trans('app.employee.ip1') }}</th>
 					<th>{{ trans('app.general.action') }}</th>
@@ -39,6 +40,7 @@
 				<tr>
 					<td>{{ $loop->iteration }}</td>
 					<td>{{ $employee->name }}</td>
+					<td>{{ $employee->position->name }}</td>
 					<td>{{ $employee->ip0 }}</td>
 					<td>{{ $employee->ip1 }}</td>
 					<td>
@@ -64,7 +66,7 @@
 							{{ trans('app.button.edit') }}
 						</a>
 
-						<form action="{{ route('accessories.destroy', $employee->id) }}" method="POST" class="d-inline">
+						<form action="{{ route('employees.destroy', $employee->id) }}" method="POST" class="d-inline">
 							@csrf
 							@method('DELETE')
 							<button type="submit" class="btn btn-sm btn-danger"
