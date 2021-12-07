@@ -22,4 +22,9 @@ class Employee extends Model
 	{
 		return $this->belongsTo(Position::class);
 	}
+
+	public function hardwares()
+	{
+		return $this->belongsToMany(Hardware::class);
+	}
 }

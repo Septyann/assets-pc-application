@@ -2,23 +2,25 @@
 
 namespace Database\Seeders;
 
+use App\Models\EmployeeHardware;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        // \App\Models\User::factory(10)->create();
-				$this->call([
-					PositionSeeder::class,
-					HardwareSeeder::class,
-					AccessorySeeder::class,
-					EmployeeSeeder::class
-				]);
-    }
+	/**
+	 * Seed the application's database.
+	 *
+	 * @return void
+	 */
+	public function run()
+	{
+		// \App\Models\User::factory(10)->create();
+		$this->call([
+			PositionSeeder::class,
+			HardwareSeeder::class,
+			AccessorySeeder::class,
+			EmployeeSeeder::class,
+			EmployeeHardwareSeeder::class
+		]);
+	}
 }

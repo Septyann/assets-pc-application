@@ -44,23 +44,9 @@
 					<td>{{ $employee->ip0 }}</td>
 					<td>{{ $employee->ip1 }}</td>
 					<td>
-						<button class="btn btn-sm btn-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
-							aria-controls="offcanvasTop">
+						<a href="{{ route('employees.show', $employee->id) }}" class="btn btn-sm btn-info">
 							{{ trans('app.button.detail') }}
-						</button>
-
-						{{-- offcanvas --}}
-						<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-							<div class="offcanvas-header">
-								<h5 id="offcanvasTopLabel">Offcanvas top</h5>
-								<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-									aria-label="Close"></button>
-							</div>
-							<div class="offcanvas-body">
-								...
-							</div>
-						</div>
-						{{-- end of offcanvas --}}
+						</a>
 
 						<a href="{{ route('employees.edit', $employee->id) }}" class="btn btn-sm btn-warning">
 							{{ trans('app.button.edit') }}

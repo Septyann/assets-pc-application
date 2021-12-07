@@ -18,7 +18,7 @@ class EmployeeController extends Controller
 	 */
 	public function index()
 	{
-		$employees = Employee::all();
+		$employees = Employee::with('position')->latest()->get();
 
 		return view('employees.index', compact('employees'));
 	}
@@ -49,13 +49,15 @@ class EmployeeController extends Controller
 	{
 		// dd($request->all());
 
-		Employee::query()->create([
+		$employee = Employee::query()->create([
 			'name' => $request->name,
 			'position_id' => $request->position_id,
 			'ip0'	=> $request->ip0,
 			'ip1'	=> $request->ip1,
 			'ip2'	=> $request->ip2,
 		]);
+
+		$employee->hardwares()->attach($request->hardwares);
 
 		$request->session()->flash('success', trans('messages.employee.saved'));
 
@@ -70,7 +72,7 @@ class EmployeeController extends Controller
 	 */
 	public function show(Employee $employee)
 	{
-		//
+		return view('employees.show', compact('employee'));
 	}
 
 	/**
@@ -87,6 +89,10 @@ class EmployeeController extends Controller
 
 		$accessories = Accessory::all();
 
+		$ownedHardwares = $employee->hardwares->pluck('id')->toArray();
+
+		// $ownedHardwares = array_column($employee->hardwares->toArray(), 'id');
+
 		return view(
 			'employees.edit',
 			compact(
@@ -94,6 +100,7 @@ class EmployeeController extends Controller
 				'positions',
 				'hardwares',
 				'accessories',
+				'ownedHardwares'
 			)
 		);
 	}
@@ -107,6 +114,8 @@ class EmployeeController extends Controller
 	 */
 	public function update(UpdateEmployeeRequest $request, Employee $employee)
 	{
+		// dd($request->all());
+
 		$employee->update([
 			'name' => $request->name,
 			'position_id' => $request->position_id,
@@ -114,6 +123,8 @@ class EmployeeController extends Controller
 			'ip1' => $request->ip1,
 			'ip2' => $request->ip2,
 		]);
+
+		$employee->hardwares()->sync($request->hardwares);
 
 		$request->session()->flash('success', trans('messages.employee.updated'));
 
@@ -128,6 +139,14 @@ class EmployeeController extends Controller
 	 */
 	public function destroy(Employee $employee)
 	{
+		// if ($employee->hardwares->first()) {
+		// 	request()->session()->flash('success', 'data gagal diapus');
+
+		// 	return back();
+		// }
+
+		$employee->hardwares()->detach();
+
 		$employee->delete();
 
 		request()->session()->flash('success', trans('messages.employee.deleted'));

@@ -1,0 +1,78 @@
+@extends('layouts.default')
+
+@section('title', trans('app.employee.detail'))
+
+@section('content')
+
+<div class="card">
+
+	<h5 class="card-header" style="text-align: center">
+		{{ trans('app.employee.detail') }} - <strong>{{ $employee->name }}</strong>
+	</h5>
+
+	<div class="card-body">
+
+		<img src="{{ asset('images/login-icon-3048.png') }}" alt="" width="100px">
+
+		<div class="mb-3 row">
+			<label class="col-md-1 col-form-label">
+				{{ trans('app.employee.name') }}
+			</label>
+			<div class="col-md-11">
+				<input type="text" class="form-control" value="{{ $employee->name }}" readonly>
+			</div>
+		</div>
+
+		<div class="mb-3 row">
+			<label class="col-md-1 col-form-label">
+				{{ trans('app.employee.position') }}
+			</label>
+			<div class="col-md-11">
+				<input type="text" class="form-control" value="{{ $employee->position->name }}" readonly>
+			</div>
+		</div>
+
+		<div class="mb-3 row">
+			<label class="col-md-1 col-form-label">
+				{{ trans('app.employee.ip0') }}
+			</label>
+			<div class="col-md-11">
+				<input type="text" class="form-control" value="{{ $employee->ip0 }}" readonly>
+			</div>
+		</div>
+
+		<div class="mb-3 row">
+			<label class="col-md-1 col-form-label">
+				{{ trans('app.employee.ip1') }}
+			</label>
+			<div class="col-md-11">
+				<input type="text" class="form-control" value="{{ $employee->ip1 }}" readonly>
+			</div>
+		</div>
+
+		<div class="mb-3 row">
+			<label class="col-md-1 col-form-label">
+				{{ trans('app.employee.ip2') }}
+			</label>
+			<div class="col-md-11">
+				<input type="text" class="form-control" value="{{ $employee->ip2 }}" readonly>
+			</div>
+		</div>
+
+		<div class="mb-3 row">
+			<label class="col-md-1 col-form-label">
+				{{ trans('app.employee.hardware') }}
+			</label>
+			<div class="col-md-11">
+				@foreach ($employee->hardwares as $hardware)
+				<input type="text" class="form-control mb-2" value="{{ $hardware->name }}" readonly>
+				@endforeach
+			</div>
+		</div>
+
+	</div>
+</div>
+
+</div>
+
+@endsection

@@ -62,7 +62,7 @@
 			<hr>
 			<br>
 
-			{{-- <h5>{{ trans('app.employee.hardware') }} & {{ trans('app.employee.accessory') }}</h5>
+			<h5>{{ trans('app.employee.hardware') }} & {{ trans('app.employee.accessory') }}</h5>
 			<hr>
 			<div class="row mb-3">
 				<label for="" class="col-sm">
@@ -72,14 +72,15 @@
 				<div class="col-sm">
 					@foreach ($hardwares as $hardware)
 					<div class="form-check">
-						<input type="checkbox" class="form-check-input" name="hardware_id[]" value="{{ $hardware->id }}">
+						<input type="checkbox" class="form-check-input" name="hardwares[]" value="{{ $hardware->id }}" {{ in_array($hardware->id, $ownedHardwares) ? 'checked' : '' }}>
 						<label for="">
 							{{ $hardware->name }}
 						</label>
 					</div>
 					@endforeach
 				</div>
-				<label for="" class="col-sm">
+
+				{{-- <label for="" class="col-sm">
 					{{ trans('app.employee.accessory') }}
 					<span class="text-danger">*</span>
 				</label>
@@ -92,8 +93,8 @@
 						</label>
 					</div>
 					@endforeach
-				</div>
-			</div> --}}
+				</div> --}}
+			</div>
 		</div>
 
 		<div class="card-footer">

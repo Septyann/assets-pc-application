@@ -38,7 +38,7 @@
 						<form action="{{ route('positions.store') }}" method="POST">
 							@csrf
 							<div class="row">
-								<label class="col-sm-2" for="">
+								<label class="col-sm-2 col-form-label" for="">
 									{{ trans('app.position.name') }}
 									<span class="text-danger">*</span>
 								</label>
@@ -96,7 +96,7 @@
 											@csrf
 											@method('PUT')
 											<div class="row">
-												<label class="col-sm-2" for="">
+												<label class="col-sm-2 col-form-label" for="">
 													{{ trans('app.position.name') }}
 													<span class="text-danger">*</span>
 												</label>

@@ -13,7 +13,7 @@
 @endif
 
 <div class="card">
-	
+
 	<h5 class="card-header" style="text-align: center">
 		{{ trans('app.hardware.alias') }}
 	</h5>
@@ -38,7 +38,7 @@
 						<form action="{{ route('hardwares.store') }}" method="POST">
 							@csrf
 							<div class="row">
-								<label class="col-sm-2" for="">
+								<label class="col-sm-2 col-form-label" for="">
 									{{ trans('app.hardware.name') }}
 									<span class="text-danger">*</span>
 								</label>
@@ -96,7 +96,7 @@
 											@csrf
 											@method('PUT')
 											<div class="row">
-												<label class="col-sm-2" for="">
+												<label class="col-sm-2 col-form-label" for="">
 													{{ trans('app.hardware.name') }}
 													<span class="text-danger">*</span>
 												</label>

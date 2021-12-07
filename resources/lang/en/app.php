@@ -29,6 +29,7 @@ return [
 	'employee' => [
 		'alias'				=> 'Employees',
 		'singular'		=> 'Employee',
+		'detail'			=> 'Detail Employee',
 		'create'			=> 'Add Employee',
 		'edit'				=> 'Edit Employee',
 		'name'				=> 'Name',

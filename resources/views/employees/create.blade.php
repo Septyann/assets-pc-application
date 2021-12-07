@@ -69,27 +69,29 @@
 				<div class="col-sm">
 					@foreach ($hardwares as $hardware)
 					<div class="form-check">
-						<input type="checkbox" class="form-check-input" name="hardware_id[]" value="{{ $hardware->id }}">
+						<input type="checkbox" class="form-check-input" name="hardwares[][hardware_id]" value="{{ $hardware->id }}">
 						<label for="">
 							{{ $hardware->name }}
 						</label>
 					</div>
 					@endforeach
 				</div>
-				<label for="" class="col-sm">
+
+				{{-- <label for="" class="col-sm">
 					{{ trans('app.employee.accessory') }}
 					<span class="text-danger">*</span>
 				</label>
 				<div class="col-sm">
 					@foreach ($accessories as $accessory)
 					<div class="form-check">
-						<input type="checkbox" class="form-check-input" name="hardware_id[]" value="{{ $accessory->id }}">
+						<input type="checkbox" class="form-check-input" name="" value="">
 						<label for="">
 							{{ $accessory->name }}
 						</label>
 					</div>
 					@endforeach
-				</div>
+				</div> --}}
+
 			</div>
 		</div>
 
@@ -100,7 +102,7 @@
 			<button type="reset" class="btn btn-secondary mr-2">
 				{{ trans('app.button.reset') }}
 			</button>
-			<a href="#" class="btn btn-secondary">
+			<a href="{{ route('employees.index') }}" class="btn btn-secondary">
 				{{ trans('app.button.back') }}
 			</a>
 		</div>
