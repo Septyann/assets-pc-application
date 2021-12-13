@@ -27,4 +27,9 @@ class Employee extends Model
 	{
 		return $this->belongsToMany(Hardware::class);
 	}
+
+	public function accessories()
+	{
+		return $this->belongsToMany(Accessory::class);
+	}
 }

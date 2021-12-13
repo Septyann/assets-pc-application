@@ -47,8 +47,6 @@ class EmployeeController extends Controller
 	 */
 	public function store(StoreEmployeeRequest $request)
 	{
-		// dd($request->all());
-
 		$employee = Employee::query()->create([
 			'name' => $request->name,
 			'position_id' => $request->position_id,
@@ -58,6 +56,8 @@ class EmployeeController extends Controller
 		]);
 
 		$employee->hardwares()->attach($request->hardwares);
+
+		$employee->accessories()->attach($request->accessories);
 
 		$request->session()->flash('success', trans('messages.employee.saved'));
 
@@ -91,6 +91,8 @@ class EmployeeController extends Controller
 
 		$ownedHardwares = $employee->hardwares->pluck('id')->toArray();
 
+		$ownedAccessories = $employee->accessories->pluck('id')->toArray();
+
 		// $ownedHardwares = array_column($employee->hardwares->toArray(), 'id');
 
 		return view(
@@ -100,7 +102,8 @@ class EmployeeController extends Controller
 				'positions',
 				'hardwares',
 				'accessories',
-				'ownedHardwares'
+				'ownedHardwares',
+				'ownedAccessories'
 			)
 		);
 	}
@@ -126,6 +129,8 @@ class EmployeeController extends Controller
 
 		$employee->hardwares()->sync($request->hardwares);
 
+		$employee->accessories()->sync($request->accessories);
+
 		$request->session()->flash('success', trans('messages.employee.updated'));
 
 		return redirect()->route('employees.index');
@@ -146,6 +151,8 @@ class EmployeeController extends Controller
 		// }
 
 		$employee->hardwares()->detach();
+
+		$employee->accessories()->detach();
 
 		$employee->delete();
 

@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\EmployeeHardware;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,7 +19,6 @@ class DatabaseSeeder extends Seeder
 			HardwareSeeder::class,
 			AccessorySeeder::class,
 			EmployeeSeeder::class,
-			EmployeeHardwareSeeder::class
 		]);
 	}
 }

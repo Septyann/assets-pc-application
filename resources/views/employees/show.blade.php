@@ -11,7 +11,6 @@
 	</h5>
 
 	<div class="card-body">
-
 		<img src="{{ asset('images/login-icon-3048.png') }}" alt="" width="100px">
 
 		<div class="mb-3 row">
@@ -70,9 +69,23 @@
 			</div>
 		</div>
 
+		<div class="mb-3 row">
+			<label class="col-md-1 col-form-label">
+				{{ trans('app.employee.accessory') }}
+			</label>
+			<div class="col-md-11">
+				@foreach ($employee->accessories as $accessory)
+				<input type="text" class="form-control mb-2" value="{{ $accessory->name }}" readonly>
+				@endforeach
+			</div>
+		</div>
 	</div>
-</div>
 
+	<div class="card-footer">
+		<a href="{{ route('employees.index') }}" class="btn btn-secondary">
+			{{ trans('app.button.back') }}
+		</a>
+	</div>
 </div>
 
 @endsection

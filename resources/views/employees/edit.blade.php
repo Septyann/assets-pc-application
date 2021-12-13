@@ -56,7 +56,8 @@
 					<input type="text" name="ip1" class="form-control" placeholder="IP 1" value="{{ $employee->ip1 }}">
 				</div>
 				<div class="col-sm">
-					<input type="text" name="ip2" class="form-control" placeholder="IP 2 (this ip maybe can null)" value="{{ $employee->ip2 }}">
+					<input type="text" name="ip2" class="form-control" placeholder="IP 2 (this ip maybe can null)"
+						value="{{ $employee->ip2 }}">
 				</div>
 			</div>
 			<hr>
@@ -72,7 +73,8 @@
 				<div class="col-sm">
 					@foreach ($hardwares as $hardware)
 					<div class="form-check">
-						<input type="checkbox" class="form-check-input" name="hardwares[]" value="{{ $hardware->id }}" {{ in_array($hardware->id, $ownedHardwares) ? 'checked' : '' }}>
+						<input type="checkbox" class="form-check-input" name="hardwares[]" value="{{ $hardware->id }}"
+							{{ in_array($hardware->id, $ownedHardwares) ? 'checked' : '' }}>
 						<label for="">
 							{{ $hardware->name }}
 						</label>
@@ -80,20 +82,21 @@
 					@endforeach
 				</div>
 
-				{{-- <label for="" class="col-sm">
+				<label for="" class="col-sm">
 					{{ trans('app.employee.accessory') }}
 					<span class="text-danger">*</span>
 				</label>
 				<div class="col-sm">
 					@foreach ($accessories as $accessory)
 					<div class="form-check">
-						<input type="checkbox" class="form-check-input" name="hardware_id[]" value="{{ $accessory->id }}">
+						<input type="checkbox" class="form-check-input" name="accessories[]" value="{{ $accessory->id }}"
+							{{ in_array($accessory->id, $ownedAccessories) ? 'checked' : "" }}>
 						<label for="">
 							{{ $accessory->name }}
 						</label>
 					</div>
 					@endforeach
-				</div> --}}
+				</div>
 			</div>
 		</div>
 

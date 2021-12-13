@@ -15,7 +15,7 @@ class HardwareController extends Controller
 	 */
 	public function index()
 	{
-		$hardwares = Hardware::all();
+		$hardwares = Hardware::all()->sortDesc();
 
 		return view('hardwares.index', compact('hardwares'));
 	}

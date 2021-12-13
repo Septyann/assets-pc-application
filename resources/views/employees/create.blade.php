@@ -69,7 +69,7 @@
 				<div class="col-sm">
 					@foreach ($hardwares as $hardware)
 					<div class="form-check">
-						<input type="checkbox" class="form-check-input" name="hardwares[][hardware_id]" value="{{ $hardware->id }}">
+						<input type="checkbox" class="form-check-input" name="hardwares[]" value="{{ $hardware->id }}">
 						<label for="">
 							{{ $hardware->name }}
 						</label>
@@ -77,20 +77,20 @@
 					@endforeach
 				</div>
 
-				{{-- <label for="" class="col-sm">
+				<label for="" class="col-sm">
 					{{ trans('app.employee.accessory') }}
 					<span class="text-danger">*</span>
 				</label>
 				<div class="col-sm">
 					@foreach ($accessories as $accessory)
 					<div class="form-check">
-						<input type="checkbox" class="form-check-input" name="" value="">
+						<input type="checkbox" class="form-check-input" name="accessories[]" value="{{ $accessory->id }}">
 						<label for="">
 							{{ $accessory->name }}
 						</label>
 					</div>
 					@endforeach
-				</div> --}}
+				</div>
 
 			</div>
 		</div>

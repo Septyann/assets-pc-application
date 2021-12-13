@@ -15,7 +15,7 @@ class AccessoryController extends Controller
 	 */
 	public function index()
 	{
-		$accessories = Accessory::all();
+		$accessories = Accessory::all()->sortDesc();
 
 		return view('accessories.index', compact('accessories'));
 	}
