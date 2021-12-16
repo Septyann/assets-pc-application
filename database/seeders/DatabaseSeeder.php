@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
 			HardwareSeeder::class,
 			AccessorySeeder::class,
 			EmployeeSeeder::class,
+			UserSeeder::class
 		]);
 	}
 }

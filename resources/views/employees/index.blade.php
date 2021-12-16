@@ -68,4 +68,11 @@
 	</div>
 </div>
 
+<form action="{{ route('logout') }}" method="POST">
+@csrf
+<button type="submit" class="mt-3 btn btn-secondary">
+	{{ trans('app.button.logout') }}
+</button>
+</form>
+
 @endsection

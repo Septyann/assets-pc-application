@@ -57,7 +57,9 @@ return [
 		'delete'			=> 'Delete',
 		'back'				=> 'Back',
 		'close'				=> 'Close',
-		'reset'				=> 'Reset'
+		'reset'				=> 'Reset',
+		'login'				=> 'Login',
+		'logout'			=> 'Logout'
 	]
 
 ];

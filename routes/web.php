@@ -17,14 +17,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+// 	return view('welcome');
+// });
+
 Route::get('/', function () {
-	return view('welcome');
+	return redirect()->route('login');
 });
 
-Route::resource('positions', PositionController::class);
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
-Route::resource('hardwares', HardwareController::class);
+Route::middleware(['auth'])->group(function () {
 
-Route::resource('accessories', AccessoryController::class);
+	Route::resource('positions', PositionController::class);
 
-Route::resource('employees', EmployeeController::class);
+	Route::resource('hardwares', HardwareController::class);
+
+	Route::resource('accessories', AccessoryController::class);
+
+	Route::resource('employees', EmployeeController::class);
+});
+
+require __DIR__ . '/auth.php';
