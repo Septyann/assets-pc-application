@@ -11,7 +11,14 @@
 	</h5>
 
 	<div class="card-body">
-		<img src="{{ asset('images/login-icon-3048.png') }}" alt="" width="100px">
+		<img src="{{ asset('images/login-icon-3048.png') }}" class="rounded mx-auto d-block" alt="" width="100px">
+
+		<div class="text-center mb-1">
+			<label for="">
+				{{ trans('app.employee.created') }}
+			</label>
+			{{ date('d-m-Y', strtotime($employee->created_at)); }}
+		</div>
 
 		<div class="mb-3 row">
 			<label class="col-md-1 col-form-label">

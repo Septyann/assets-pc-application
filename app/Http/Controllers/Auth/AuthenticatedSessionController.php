@@ -36,6 +36,10 @@ class AuthenticatedSessionController extends Controller
 			return redirect()->route('employees.index');
 		}
 
+		if (auth()->user()->is_user) {
+			return redirect()->route('employees.index');
+		}
+
 		return redirect()->intended(RouteServiceProvider::HOME);
 	}
 

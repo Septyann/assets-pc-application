@@ -8,6 +8,7 @@ use App\Models\Accessory;
 use App\Models\Employee;
 use App\Models\Hardware;
 use App\Models\Position;
+use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
 {
@@ -20,7 +21,15 @@ class EmployeeController extends Controller
 	{
 		$employees = Employee::with('position')->latest()->get();
 
-		return view('employees.index', compact('employees'));
+		$totalEmployees = $employees->count();
+
+		$totalHardwares = DB::table('employee_hardware')->count('hardware_id');
+
+		$totalAccessories = DB::table('accessory_employee')->count('accessory_id');
+
+		// dd($totalHardwares);
+
+		return view('employees.index', compact('employees', 'totalEmployees', 'totalHardwares', 'totalAccessories'));
 	}
 
 	/**

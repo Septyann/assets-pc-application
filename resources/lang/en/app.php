@@ -13,6 +13,7 @@ return [
 	'hardware' => [
 		'alias'				=> 'Hardwares',
 		'singular'		=> 'Hardware',
+		'total'				=> 'Total Hardwares',
 		'create'			=> 'Add Hardware',
 		'name'				=> 'Name',
 		'max_length'	=> '50'
@@ -21,6 +22,7 @@ return [
 	'accessory' => [
 		'alias'				=> 'Accessories',
 		'singular'		=> 'Accessory',
+		'total'				=> 'Total Accessories',
 		'create'			=> 'Add Accessory',
 		'name'				=> 'Name',
 		'max_length'	=> '50'
@@ -30,6 +32,8 @@ return [
 		'alias'				=> 'Employees',
 		'singular'		=> 'Employee',
 		'detail'			=> 'Detail Employee',
+		'total'				=> 'Total Employees',
+		'created'			=> 'Created : ',
 		'create'			=> 'Add Employee',
 		'edit'				=> 'Edit Employee',
 		'name'				=> 'Name',
@@ -42,6 +46,13 @@ return [
 		'accessory'		=> 'Accessories',
 		'employee_info'	=> 'Employee Info',
 		'max_length'	=> '50'
+	],
+
+	'user' => [
+		'alias'				=> 'Users',
+		'singular'		=> 'User',
+		'create'			=> 'Add User',
+		'edit'				=> 'Edit User',
 	],
 
 	'general' => [

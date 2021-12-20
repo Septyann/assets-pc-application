@@ -15,7 +15,9 @@
 <div class="card">
 
 	<h5 class="card-header" style="text-align: center">
-		{{ trans('app.accessory.alias') }}
+		<strong>
+			{{ trans('app.accessory.alias') }}
+		</strong>
 	</h5>
 
 	<div class="card-body">
