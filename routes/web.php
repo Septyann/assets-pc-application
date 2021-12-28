@@ -38,6 +38,8 @@ Route::middleware(['auth'])->group(function () {
 	Route::resource('accessories', AccessoryController::class);
 
 	Route::resource('employees', EmployeeController::class);
+
+	Route::resource('users', UserController::class);
 });
 
 require __DIR__ . '/auth.php';

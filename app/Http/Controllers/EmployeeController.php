@@ -27,9 +27,15 @@ class EmployeeController extends Controller
 
 		$totalAccessories = DB::table('accessory_employee')->count('accessory_id');
 
-		// dd($totalHardwares);
-
-		return view('employees.index', compact('employees', 'totalEmployees', 'totalHardwares', 'totalAccessories'));
+		return view(
+			'employees.index',
+			compact(
+				'employees',
+				'totalEmployees',
+				'totalHardwares',
+				'totalAccessories'
+			)
+		);
 	}
 
 	/**
@@ -45,7 +51,14 @@ class EmployeeController extends Controller
 
 		$accessories = Accessory::all();
 
-		return view('employees.create', compact('positions', 'hardwares', 'accessories'));
+		return view(
+			'employees.create',
+			compact(
+				'positions',
+				'hardwares',
+				'accessories'
+			)
+		);
 	}
 
 	/**
@@ -56,12 +69,14 @@ class EmployeeController extends Controller
 	 */
 	public function store(StoreEmployeeRequest $request)
 	{
+		$data = $request->validated();
+
 		$employee = Employee::query()->create([
-			'name' => $request->name,
-			'position_id' => $request->position_id,
-			'ip0'	=> $request->ip0,
-			'ip1'	=> $request->ip1,
-			'ip2'	=> $request->ip2,
+			'name' => $data['name'],
+			'position_id' => $data['position_id'],
+			'ip0'	=> $data['ip0'],
+			'ip1'	=> $data['ip1'],
+			'ip2'	=> $data['ip2'],
 		]);
 
 		$employee->hardwares()->attach($request->hardwares);
