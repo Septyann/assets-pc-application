@@ -51,6 +51,11 @@ return [
 	'user' => [
 		'alias'				=> 'Users',
 		'singular'		=> 'User',
+		'name'				=> 'Name',
+		'username'		=> 'Username',
+		'email'				=> 'Email',
+		'password'		=> 'Password',
+		'confirm_password'	=> 'Confirm Password',
 		'create'			=> 'Add User',
 		'edit'				=> 'Edit User',
 	],

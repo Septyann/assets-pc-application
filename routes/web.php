@@ -4,6 +4,7 @@ use App\Http\Controllers\AccessoryController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HardwareController;
 use App\Http\Controllers\PositionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*

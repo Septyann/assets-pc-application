@@ -119,7 +119,7 @@ class EmployeeController extends Controller
 
 		$ownedAccessories = $employee->accessories->pluck('id')->toArray();
 		
-		// dd($ownedAccessories);
+		dd($ownedAccessories);
 
 		// $ownedHardwares = array_column($employee->hardwares->toArray(), 'id');
 

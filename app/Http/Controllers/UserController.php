@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class UserController extends Controller
 {
@@ -14,7 +20,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+
+				return view('users.index', compact('users'));
     }
 
     /**
@@ -35,7 +43,33 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+			// dd($request->all());
+
+			$request->validate([
+				'name' => ['required', 'string', 'max:255'],
+				'username' => ['required', 'string', 'max:255'],
+				'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+				'password' => ['required', 'confirmed', Rules\Password::defaults()],
+			]);
+
+			$user = User::create([
+				'name' => $request->name,
+				'username' => $request->username,
+				'email' => $request->email,
+				'password' => Hash::make($request->password),
+				'is_admin' => 0,
+				'is_user' => 1,
+			]);
+
+			// dd($user);
+
+			event(new Registered($user));
+
+			Auth::login($user);
+
+			return redirect(RouteServiceProvider::HOME);
+
+			return back();
     }
 
     /**
